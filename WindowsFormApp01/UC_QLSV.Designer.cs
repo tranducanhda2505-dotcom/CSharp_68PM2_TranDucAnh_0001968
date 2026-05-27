@@ -29,47 +29,42 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxLopHoc = new System.Windows.Forms.ComboBox();
+            this.cboGioiTinh = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.txt_mssv = new System.Windows.Forms.TextBox();
             this.ngaysinh = new System.Windows.Forms.Label();
             this.lop = new System.Windows.Forms.Label();
             this.hoten = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_clear = new System.Windows.Forms.Button();
+            this.dgvSinhVien = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.btn_head = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btn_tail = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbxLopHoc);
+            this.groupBox1.Controls.Add(this.cboGioiTinh);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dtpNgaySinh);
             this.groupBox1.Controls.Add(this.txt_name);
             this.groupBox1.Controls.Add(this.txt_mssv);
             this.groupBox1.Controls.Add(this.ngaysinh);
@@ -85,23 +80,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sinh viên";
             // 
-            // comboBox3
+            // cbxLopHoc
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(29, 363);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(421, 24);
-            this.comboBox3.TabIndex = 11;
+            this.cbxLopHoc.FormattingEnabled = true;
+            this.cbxLopHoc.Items.AddRange(new object[] {
+            "68PM1",
+            "68PM2"});
+            this.cbxLopHoc.Location = new System.Drawing.Point(29, 363);
+            this.cbxLopHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxLopHoc.Name = "cbxLopHoc";
+            this.cbxLopHoc.Size = new System.Drawing.Size(421, 24);
+            this.cbxLopHoc.TabIndex = 11;
             // 
-            // comboBox2
+            // cboGioiTinh
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(29, 284);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(421, 24);
-            this.comboBox2.TabIndex = 8;
+            this.cboGioiTinh.FormattingEnabled = true;
+            this.cboGioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ ",
+            "Khác"});
+            this.cboGioiTinh.Location = new System.Drawing.Point(29, 284);
+            this.cboGioiTinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboGioiTinh.Name = "cboGioiTinh";
+            this.cboGioiTinh.Size = new System.Drawing.Size(421, 24);
+            this.cboGioiTinh.TabIndex = 8;
+            this.cboGioiTinh.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -112,13 +115,13 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Lớp môn học :";
             // 
-            // dateTimePicker2
+            // dtpNgaySinh
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(29, 203);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(421, 22);
-            this.dateTimePicker2.TabIndex = 8;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(29, 203);
+            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(421, 22);
+            this.dtpNgaySinh.TabIndex = 8;
             // 
             // txt_name
             // 
@@ -172,111 +175,72 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã số sinh viên:";
             // 
-            // button1
+            // btn_add
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button1.Location = new System.Drawing.Point(0, 483);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(244, 50);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_add.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_add.Location = new System.Drawing.Point(0, 483);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(244, 50);
+            this.btn_add.TabIndex = 8;
+            this.btn_add.Text = "Thêm";
+            this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // button2
+            // btn_edit
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button2.Location = new System.Drawing.Point(249, 483);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(248, 50);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_edit.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_edit.Location = new System.Drawing.Point(249, 483);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(248, 50);
+            this.btn_edit.TabIndex = 9;
+            this.btn_edit.Text = "Sửa";
+            this.btn_edit.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btn_delete
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(0, 538);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(244, 50);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_delete.BackColor = System.Drawing.Color.Red;
+            this.btn_delete.Location = new System.Drawing.Point(0, 538);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(244, 50);
+            this.btn_delete.TabIndex = 10;
+            this.btn_delete.Text = "Xóa";
+            this.btn_delete.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btn_clear
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.button4.Location = new System.Drawing.Point(249, 538);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(248, 50);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Làm mới";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btn_clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_clear.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_clear.Location = new System.Drawing.Point(249, 538);
+            this.btn_clear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(248, 50);
+            this.btn_clear.TabIndex = 11;
+            this.btn_clear.Text = "Làm mới";
+            this.btn_clear.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvSinhVien
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvSinhVien.AllowUserToAddRows = false;
+            this.dgvSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MSSV,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(524, 109);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(720, 382);
-            this.dataGridView1.TabIndex = 12;
-            // 
-            // MSSV
-            // 
-            this.MSSV.HeaderText = "MSSV";
-            this.MSSV.MinimumWidth = 8;
-            this.MSSV.Name = "MSSV";
-            this.MSSV.Width = 150;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Họ và tên";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Giới tính";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Ngày sinh";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Lớp";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
+            this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSinhVien.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvSinhVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSinhVien.Location = new System.Drawing.Point(524, 109);
+            this.dgvSinhVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvSinhVien.Name = "dgvSinhVien";
+            this.dgvSinhVien.RowHeadersVisible = false;
+            this.dgvSinhVien.RowHeadersWidth = 62;
+            this.dgvSinhVien.RowTemplate.Height = 28;
+            this.dgvSinhVien.Size = new System.Drawing.Size(720, 382);
+            this.dgvSinhVien.TabIndex = 12;
             // 
             // textBox1
             // 
@@ -296,29 +260,29 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Tìm kiếm (Tên/MSSV/Lớp)";
             // 
-            // button5
+            // btn_search
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(950, 38);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(104, 34);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Tìm";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btn_search.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_search.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_search.Location = new System.Drawing.Point(950, 38);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(104, 34);
+            this.btn_search.TabIndex = 16;
+            this.btn_search.Text = "Tìm";
+            this.btn_search.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btn_head
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.Location = new System.Drawing.Point(688, 512);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(62, 46);
-            this.button6.TabIndex = 17;
-            this.button6.Text = "<<";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btn_head.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_head.Location = new System.Drawing.Point(688, 512);
+            this.btn_head.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_head.Name = "btn_head";
+            this.btn_head.Size = new System.Drawing.Size(62, 46);
+            this.btn_head.TabIndex = 17;
+            this.btn_head.Text = "<<";
+            this.btn_head.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -352,41 +316,42 @@
             this.button8.Text = ">";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btn_tail
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.Location = new System.Drawing.Point(1071, 512);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(62, 46);
-            this.button9.TabIndex = 21;
-            this.button9.Text = ">>";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btn_tail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_tail.Location = new System.Drawing.Point(1071, 512);
+            this.btn_tail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_tail.Name = "btn_tail";
+            this.btn_tail.Size = new System.Drawing.Size(62, 46);
+            this.btn_tail.TabIndex = 21;
+            this.btn_tail.Text = ">>";
+            this.btn_tail.UseVisualStyleBackColor = true;
             // 
             // UC_QLSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.btn_tail);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btn_head);
+            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dgvSinhVien);
+            this.Controls.Add(this.btn_clear);
+            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_edit);
+            this.Controls.Add(this.btn_add);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UC_QLSV";
             this.Size = new System.Drawing.Size(1255, 608);
+            this.Load += new System.EventHandler(this.UC_QLSV_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,33 +360,28 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxLopHoc;
+        private System.Windows.Forms.ComboBox cboGioiTinh;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.TextBox txt_mssv;
         private System.Windows.Forms.Label ngaysinh;
         private System.Windows.Forms.Label lop;
         private System.Windows.Forms.Label hoten;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSSV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Button btn_edit;
+        private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.DataGridView dgvSinhVien;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.Button btn_head;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btn_tail;
     }
 }

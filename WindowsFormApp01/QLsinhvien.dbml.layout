@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="QLsinhvien">
+  <DataContextMoniker Name="/QLsinhvienDataContext" />
+  <nestedChildShapes>
+    <classShape Id="350ef8ca-e35a-4cd7-ae50-faf5000cf75d" absoluteBounds="0.5, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/QLsinhvienDataContext/Class" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a0b8989-d310-4596-b2fc-2a5c7e0508a8" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a583bdac-1757-4d67-ad2d-b542547eca63" absoluteBounds="4.25, 2.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/QLsinhvienDataContext/Student" />
+      <nestedChildShapes>
+        <elementListCompartment Id="505df3c4-d26f-4d1e-a05a-a2f9fc3ba77c" absoluteBounds="4.265, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.44314697265625); (5.25 : 1.44314697265625); (5.25 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QLsinhvienDataContext/Class/Class_Student" />
+      <nodes>
+        <classShapeMoniker Id="350ef8ca-e35a-4cd7-ae50-faf5000cf75d" />
+        <classShapeMoniker Id="a583bdac-1757-4d67-ad2d-b542547eca63" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
