@@ -13,6 +13,10 @@ namespace WindowsFormsApp01
     public partial class UC_QLSV : UserControl
     {
         QLsinhvienDataContext db = new QLsinhvienDataContext();
+        int pageSize = 10;
+        int currentPage = 1;
+        int totalPages = 1;
+        string currentSearchStr = "";
         public UC_QLSV()
         {
             InitializeComponent();
@@ -73,6 +77,12 @@ namespace WindowsFormsApp01
             {
                 dgvSinhVien.Columns["Class"].Visible = false;
             }
+            // bỏ qua cột IsDeleted 
+            if (dgvSinhVien.Columns["IsDeleted"] != null)
+            {
+                dgvSinhVien.Columns["IsDeleted"].Visible = false;
+            }
+            lblPageInfo.Text = $"Trang {currentPage}/{totalPages} | {totalRecords} bản ghi";
         }
         public void LoadLopHoc()
         {
@@ -80,8 +90,47 @@ namespace WindowsFormsApp01
             cbxLopHoc.DataSource = dsLopHoc;
 
             // hiển thị tên , lúc lấy về lấy mã lớp 
-            cbxLopHoc.DisplayMember = "ClassName"; // Tên cột hiển thị trong ComboBox
-            cbxLopHoc.ValueMember = "ClassId"; // Tên cột làm giá trị (ID của lớp học)
+            cbxLopHoc.DisplayMember = "ClassName";
+            cbxLopHoc.ValueMember = "ClassId";
+        }
+        private void btn_head_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            LoadData();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                LoadData();
+            }
+        }
+
+        private void btn_next_click_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                LoadData();
+            }
+        }
+
+        private void btn_tail_Click(object sender, EventArgs e)
+        {
+            currentPage = totalPages;
+            LoadData();
+        }
+
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            // Cập nhật từ khóa và ép load lại từ trang 1
+            currentSearchStr = text_search.Text.Trim();
+            currentPage = 1;
+            LoadData();
+        }
         private void dgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
