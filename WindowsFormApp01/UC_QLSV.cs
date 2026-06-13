@@ -93,6 +93,52 @@ namespace WindowsFormsApp01
             cbxLopHoc.DisplayMember = "ClassName";
             cbxLopHoc.ValueMember = "ClassId";
         }
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string mssv = txt_mssv.Text;
+                Student sv = db.Students.FirstOrDefault(s => s.MSSV == mssv);
+
+                if (sv != null)
+                {
+                    sv.FullName = txt_name.Text;
+                    sv.Gender = cboGioiTinh.Text;
+                    sv.DateOfBirth = dtpNgaySinh.Value;
+                    sv.ClassId = cbxLopHoc.SelectedValue?.ToString();
+
+                    db.SubmitChanges();
+                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn sinh viên cần sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            txt_mssv.Text = "";
+            txt_name.Text = "";
+            cboGioiTinh.SelectedIndex = -1;
+            cbxLopHoc.SelectedIndex = 0;
+
+            dtpNgaySinh.Value = DateTime.Now;
+
+            txt_mssv.Enabled = true;
+
+            currentSearchStr = "";
+            if (text_search != null) text_search.Text = ""; // Xóa text ở ô tìm kiếm nếu có
+            currentPage = 1;
+
+            LoadData();
+        }
         private void btn_head_Click(object sender, EventArgs e)
         {
             currentPage = 1;
