@@ -97,6 +97,10 @@ namespace WindowsFormsApp01
 		
 		private string _Note;
 		
+		private bool _IsDeleted;
+		
+		private string _ID;
+		
 		private EntitySet<Student> _Students;
 		
     #region Extensibility Method Definitions
@@ -109,6 +113,10 @@ namespace WindowsFormsApp01
     partial void OnClassNameChanged();
     partial void OnNoteChanging(string value);
     partial void OnNoteChanged();
+    partial void OnIsDeletedChanging(bool value);
+    partial void OnIsDeletedChanged();
+    partial void OnIDChanging(string value);
+    partial void OnIDChanged();
     #endregion
 		
 		public Class()
@@ -177,6 +185,46 @@ namespace WindowsFormsApp01
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDeleted", DbType="Bit NOT NULL")]
+		public bool IsDeleted
+		{
+			get
+			{
+				return this._IsDeleted;
+			}
+			set
+			{
+				if ((this._IsDeleted != value))
+				{
+					this.OnIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._IsDeleted = value;
+					this.SendPropertyChanged("IsDeleted");
+					this.OnIsDeletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(20)")]
+		public string ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_Student", Storage="_Students", ThisKey="ClassId", OtherKey="ClassId")]
 		public EntitySet<Student> Students
 		{
@@ -239,6 +287,8 @@ namespace WindowsFormsApp01
 		
 		private string _ClassId;
 		
+		private bool _IsDeleted;
+		
 		private EntityRef<Class> _Class;
 		
     #region Extensibility Method Definitions
@@ -255,6 +305,8 @@ namespace WindowsFormsApp01
     partial void OnGenderChanged();
     partial void OnClassIdChanging(string value);
     partial void OnClassIdChanged();
+    partial void OnIsDeletedChanging(bool value);
+    partial void OnIsDeletedChanged();
     #endregion
 		
 		public Student()
@@ -363,6 +415,26 @@ namespace WindowsFormsApp01
 					this._ClassId = value;
 					this.SendPropertyChanged("ClassId");
 					this.OnClassIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDeleted", DbType="Bit NOT NULL")]
+		public bool IsDeleted
+		{
+			get
+			{
+				return this._IsDeleted;
+			}
+			set
+			{
+				if ((this._IsDeleted != value))
+				{
+					this.OnIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._IsDeleted = value;
+					this.SendPropertyChanged("IsDeleted");
+					this.OnIsDeletedChanged();
 				}
 			}
 		}

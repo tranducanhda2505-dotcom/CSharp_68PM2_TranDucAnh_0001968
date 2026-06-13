@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,7 +52,6 @@ namespace WindowsFormsApp01
                 return;
             }
 
-            // lấy mã lớp học từ combo box, vì combo box đã được thiết lập ValueMember là "Id" nên khi lấy SelectedValue sẽ trả về mã lớp học
             sv.ClassId = cbxLopHoc.SelectedValue.ToString();
 
             try
@@ -92,6 +92,7 @@ namespace WindowsFormsApp01
 
 
             dgvSinhVien.DataSource = pagedData;
+
             if (dgvSinhVien.Columns["Class"] != null)
             {
                 dgvSinhVien.Columns["Class"].Visible = false;
@@ -103,6 +104,7 @@ namespace WindowsFormsApp01
             }
             lblPageInfo.Text = $"Trang {currentPage}/{totalPages} | {totalRecords} bản ghi";
         }
+
         public void LoadLopHoc()
         {
             List<Class> dsLopHoc = db.Classes.ToList();
@@ -112,6 +114,7 @@ namespace WindowsFormsApp01
             cbxLopHoc.DisplayMember = "ClassName";
             cbxLopHoc.ValueMember = "ClassId";
         }
+
         private void btn_edit_Click(object sender, EventArgs e)
         {
             try
@@ -158,6 +161,7 @@ namespace WindowsFormsApp01
 
             LoadData();
         }
+
         private void btn_delete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_mssv.Text))
@@ -189,6 +193,8 @@ namespace WindowsFormsApp01
                 }
             }
         }
+
+
         private void btn_head_Click(object sender, EventArgs e)
         {
             currentPage = 1;
@@ -227,6 +233,8 @@ namespace WindowsFormsApp01
             currentPage = 1;
             LoadData();
         }
+
+
         private void dgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -248,5 +256,6 @@ namespace WindowsFormsApp01
                 txt_mssv.Enabled = false;
             }
         }
+
     }
 }

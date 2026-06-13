@@ -2,23 +2,23 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="QLsinhvien">
   <DataContextMoniker Name="/QLsinhvienDataContext" />
   <nestedChildShapes>
-    <classShape Id="350ef8ca-e35a-4cd7-ae50-faf5000cf75d" absoluteBounds="0.5, 0.75, 2, 1.3862939453125">
+    <classShape Id="13ce8473-3735-46fb-a57f-6ff19eb786bc" absoluteBounds="0.75, 0.875, 2, 1.7708968098958331">
       <DataClassMoniker Name="/QLsinhvienDataContext/Class" />
       <nestedChildShapes>
-        <elementListCompartment Id="4a0b8989-d310-4596-b2fc-2a5c7e0508a8" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1a564eaf-e4d3-4398-8d2a-6fa1ee273801" absoluteBounds="0.76500000000000012, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a583bdac-1757-4d67-ad2d-b542547eca63" absoluteBounds="4.25, 2.5, 2, 1.7708968098958331">
+    <classShape Id="f9174a2f-e72e-4c7c-8ce0-6536dd69f03e" absoluteBounds="4.375, 2.875, 2, 1.9631982421875">
       <DataClassMoniker Name="/QLsinhvienDataContext/Student" />
       <nestedChildShapes>
-        <elementListCompartment Id="505df3c4-d26f-4d1e-a05a-a2f9fc3ba77c" absoluteBounds="4.265, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d2c3ac35-9bdc-42c8-8398-5356139556ab" absoluteBounds="4.39, 3.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 1.44314697265625); (5.25 : 1.44314697265625); (5.25 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.76044840494792); (5.375 : 1.76044840494792); (5.375 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/QLsinhvienDataContext/Class/Class_Student" />
       <nodes>
-        <classShapeMoniker Id="350ef8ca-e35a-4cd7-ae50-faf5000cf75d" />
-        <classShapeMoniker Id="a583bdac-1757-4d67-ad2d-b542547eca63" />
+        <classShapeMoniker Id="13ce8473-3735-46fb-a57f-6ff19eb786bc" />
+        <classShapeMoniker Id="f9174a2f-e72e-4c7c-8ce0-6536dd69f03e" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

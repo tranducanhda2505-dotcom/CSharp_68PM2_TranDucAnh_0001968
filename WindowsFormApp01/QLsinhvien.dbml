@@ -5,6 +5,8 @@
       <Column Name="ClassId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ClassName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Association Name="Class_Student" Member="Students" ThisKey="ClassId" OtherKey="ClassId" Type="Student" />
     </Type>
   </Table>
@@ -15,6 +17,7 @@
       <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="ClassId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Class_Student" Member="Class" ThisKey="ClassId" OtherKey="ClassId" Type="Class" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
