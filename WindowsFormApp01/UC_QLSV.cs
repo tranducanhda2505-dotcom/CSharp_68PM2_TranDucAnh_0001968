@@ -71,8 +71,27 @@ namespace WindowsFormsApp01
 
         public void LoadData()
         {
-            List<Student> dsSinhVien = db.Students.ToList();
-            dgvSinhVien.DataSource = dsSinhVien;
+            var query = db.Students.Where(s => s.IsDeleted == false || s.IsDeleted == null);
+
+            if (!string.IsNullOrEmpty(currentSearchStr))
+            {
+                // lấy sinh viên nào mà có từ khóa 
+                query = query.Where(s => s.FullName.Contains(currentSearchStr) ||
+                                         s.MSSV.Contains(currentSearchStr) ||
+                                         s.ClassId.Contains(currentSearchStr));
+            }
+
+            int totalRecords = query.Count();
+            // làm tròn lên 
+            totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
+            if (totalPages == 0) totalPages = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+
+
+            var pagedData = query.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+
+
+            dgvSinhVien.DataSource = pagedData;
             if (dgvSinhVien.Columns["Class"] != null)
             {
                 dgvSinhVien.Columns["Class"].Visible = false;
@@ -138,6 +157,37 @@ namespace WindowsFormsApp01
             currentPage = 1;
 
             LoadData();
+        }
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_mssv.Text))
+            {
+                MessageBox.Show("Vui lòng click chọn một sinh viên trên lưới để xóa!", "Cảnh báo");
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                try
+                {
+                    string mssv = txt_mssv.Text;
+                    Student sv = db.Students.FirstOrDefault(s => s.MSSV == mssv);
+
+                    if (sv != null)
+                    {
+                        sv.IsDeleted = true; // Cập nhật biến xóa mềm thành true
+                        db.SubmitChanges();
+
+                        MessageBox.Show("Đã xóa sinh viên thành công!", "Thông báo");
+                        btn_clear_Click(null, null); // Reset lại giao diện sau khi xóa
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
         }
         private void btn_head_Click(object sender, EventArgs e)
         {
